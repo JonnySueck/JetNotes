@@ -77,10 +77,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
 import com.yourcompany.android.jetnotes.R
-import com.yourcompany.android.jetnotes.data.repository.Repository
 import com.yourcompany.android.jetnotes.domain.model.ColorModel
 import com.yourcompany.android.jetnotes.domain.model.NEW_NOTE_ID
 import com.yourcompany.android.jetnotes.domain.model.NoteModel
@@ -264,10 +261,16 @@ private fun SaveNoteContent(
     )
     NoteCheckOption(
       isChecked = canBeCheckedOff,
-      onCheckedChange = { canBeCheckedOffNewValue ->
+      onCheckedChange = { canBeCheckedOff ->
         val isCheckedOff: Boolean? = if(canBeCheckedOff) false else null
         onNoteChange.invoke(note.copy(isCheckedOff = isCheckedOff))
       })
+//    NoteCheckOption(
+//      isChecked = canBeCheckedOff,
+//      onCheckedChange = { canBeCheckedOffNewValue ->
+//        val isCheckedOff: Boolean? = if(canBeCheckedOff) false else null
+//        onNoteChange.invoke(note.copy(isCheckedOff = isCheckedOff))
+//      })
   }
 }
 
